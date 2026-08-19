@@ -5,12 +5,18 @@ interface ScoreCardProps {
   player: Player;
   color?: string;
   onScoreChange: (amount: number) => void;
+  onNameClick: () => void;
 }
 
-function ScoreCard({ player, color, onScoreChange }: ScoreCardProps) {
+function ScoreCard({
+  player,
+  color,
+  onScoreChange,
+  onNameClick,
+}: ScoreCardProps) {
   return (
     <div className="score-card" style={{ borderColor: color }}>
-      <h3 className="player-name" style={{ color }}>
+      <h3 className="player-name" style={{ color }} onClick={onNameClick}>
         {player.name}
       </h3>
       <div className="panel">

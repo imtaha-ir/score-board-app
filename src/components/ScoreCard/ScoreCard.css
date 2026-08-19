@@ -12,6 +12,11 @@
   font-family: "Orbitron";
   top: 10px;
   left: 10px;
+  cursor: pointer;
+}
+
+.score-card .player-name:hover {
+  opacity: 0.8;
 }
 .score-card .panel {
   display: flex;

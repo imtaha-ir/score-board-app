@@ -62,6 +62,23 @@ function App() {
     });
     setPlayers(newPlayers);
   };
+  const handlePlayerNameChange = (playerId: number) => {
+    const currentPlayer = players.find((player) => player.id === playerId);
+    const playerName = prompt("Enter player name:", currentPlayer?.name);
+    if (!playerName?.trim()) {
+      return;
+    }
+
+    const newPlayers = [...players];
+    const index = newPlayers.findIndex((player) => player.id === playerId);
+    if (index >= 0) {
+      newPlayers[index] = {
+        ...newPlayers[index],
+        name: playerName.trim(),
+      };
+      setPlayers(newPlayers);
+    }
+  };
 
   const scoreCards = players.map((player, playerIndex) => {
     return (
@@ -70,6 +87,7 @@ function App() {
         player={player}
         color={getColorByIndex(playerIndex)}
         onScoreChange={(amount) => scoreChangeHandler(player.id, amount)}
+        onNameClick={() => handlePlayerNameChange(player.id)}
       />
     );
   });

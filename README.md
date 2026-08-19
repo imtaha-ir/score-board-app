@@ -1,75 +1,62 @@
-# React + TypeScript + Vite
+# Score Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Score Board یک اپلیکیشن ساده و سبک برای ثبت و مدیریت امتیاز بازیکنان است. این برنامه با React و TypeScript ساخته شده و برای استفاده در بازی‌های رومیزی، مسابقه‌ها و هر موقعیتی که به شمارش سریع امتیاز نیاز دارد مناسب است.
 
-Currently, two official plugins are available:
+## نصب و اجرا
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+برای دریافت وابستگی‌ها، در ریشه پروژه اجرا کنید:
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+برای اجرای برنامه در حالت توسعه:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm run dev
 ```
+
+سپس آدرس نمایش‌داده‌شده در ترمینال را در مرورگر باز کنید.
+
+## روش کار با برنامه
+
+- برنامه با دو بازیکن پیش‌فرض (`Player 1` و `Player 2`) و امتیاز صفر شروع می‌شود.
+- با انتخاب `Add Player` می‌توانید بازیکن جدیدی اضافه کنید. نام بازیکن در پنجره ورودی مرورگر دریافت می‌شود.
+- با انتخاب نام هر بازیکن، می‌توانید نام او را تغییر دهید.
+- برای تغییر امتیاز از دکمه‌های کارت بازیکن استفاده کنید:
+  - `-1` یک امتیاز کم می‌کند.
+  - `+1` یک امتیاز اضافه می‌کند.
+  - `+5` پنج امتیاز اضافه می‌کند.
+- دکمه `Reset` اگر حداقل یکی از امتیازها مثبت باشد، پس از تأیید همه امتیازها را صفر می‌کند. در غیر این صورت، پس از تأیید، بازیکنان را نیز به دو بازیکن پیش‌فرض برمی‌گرداند.
+
+## ساخت نسخه نهایی
+
+برای ساخت نسخه قابل انتشار:
+
+```bash
+npm run build
+```
+
+برای مشاهده نسخه ساخته‌شده به‌صورت محلی:
+
+```bash
+npm run preview
+```
+
+برای بررسی خطاهای ESLint نیز می‌توانید از دستور زیر استفاده کنید:
+
+```bash
+npm run lint
+```
+
+## نکات مهم
+
+- نام بازیکنان و امتیازها فعلاً فقط در وضعیت اجرای برنامه نگهداری می‌شوند و با رفرش صفحه یا باز کردن دوباره برنامه به مقدار اولیه برمی‌گردند.
+- برنامه برای نصب به‌صورت PWA آماده است و فایل‌های رابط کاربری پس از اولین بازدید آنلاین توسط service worker ذخیره می‌شوند. برای نصب و اجرای درست service worker از `localhost` یا یک آدرس HTTPS استفاده کنید.
+
+## فناوری‌ها
+
+- React
+- TypeScript
+- Vite
+- vite-plugin-pwa
