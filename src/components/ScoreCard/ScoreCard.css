@@ -1,0 +1,47 @@
+.score-card {
+  position: relative;
+  padding: 16px 20px;
+  border: 2px solid;
+  border-right: none;
+  border-left: none;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.score-card .player-name {
+  position: absolute;
+  font-family: "Orbitron";
+  top: 10px;
+  left: 10px;
+}
+.score-card .panel {
+  display: flex;
+  gap: 10px;
+  padding: var(--padding-lg);
+}
+
+.score-card .panel .player-score {
+  flex-grow: 1;
+  align-self: center;
+  text-align: center;
+  font-family: "Orbitron";
+  font-size: 300%;
+}
+
+.score-card .controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-lg);
+}
+
+.score-card .controls button {
+  padding: 10px 18px;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 12px;
+  color: #f7fbff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.score-card .controls button:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.3);
+}
