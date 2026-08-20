@@ -29,7 +29,7 @@ function App() {
     }
   };
   const handleResetClick = () => {
-    const allArentZero = players.some((player) => player.score > 0);
+    const allArentZero = players.some((player) => player.score !== 0);
     if (allArentZero) {
       const confirmReset = confirm("Do you want to reset scores?");
       if (confirmReset) {
