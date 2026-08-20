@@ -4,6 +4,7 @@ import { VitePWA } from "vite-plugin-pwa";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/score-boardapp/",
   plugins: [
     react(),
     VitePWA({
@@ -13,8 +14,8 @@ export default defineConfig({
         name: "Score Board",
         short_name: "Score Board",
         description: "An offline score board for keeping track of players.",
-        start_url: "/",
-        scope: "/",
+        start_url: "/score-board-app/",
+        scope: "/score-board-app/",
         display: "standalone",
         theme_color: "#111827",
         background_color: "#f8fafc",
